@@ -3,8 +3,8 @@
 use App\Http\Controllers\Api\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\BackendController;
-  Route:: get('/inicio',function () {
+
+Route::get('/home', function () {
     return view('welcome');
 });
 Route::post('/login', [AuthController::class, 'login']);
@@ -16,16 +16,5 @@ Route::post('/login', [AuthController::class, 'login']);
     Route::put('/update/{user}', [UserController::class, 'update']);
     Route::delete('/destroy/{user}', [UserController::class, 'destroy']);
     Route::get('/show/{user}', [UserController::class, 'show']);
-  
 //});
-
-Route:: get('/test',function () {
-    return 'welcome';
-});
-Route:: get('/backend', [BackendController::class, "getAll" ]);
-
-Route:: get('/backend/{id?}', [BackendController::class, "get" ]);
-Route:: post('/backend', [BackendController::class, "create" ]);
-Route:: put('/backend/{id}', [BackendController::class, "update" ]);
-Route:: delete('/backend/{id}', [BackendController::class, "delete" ]);
 
